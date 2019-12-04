@@ -1,14 +1,16 @@
 import React, {Component, Fragment} from 'react'
 import Demo1 from './Demo1'
+import Lifecycle from './lifecycle'
+import Axios from './axios'
 import PropTypes from 'prop-types'  // 校验
-
+import axios from 'axios'
 
 class Demo extends Component {
   constructor (props) {
     super(props)
     this.state = {
       inputValue: 'haha',
-      list: ['aaaa', 'bbbbb']
+      list: []
     }
   }
 
@@ -16,11 +18,15 @@ class Demo extends Component {
     return (
       <Fragment>
         <div>
-          <label htmlFor="jspang">加入服务：</label>
-          <input id="jspang" value={this.state.inputValue} onChange={this.inputChange.bind(this)}/> 
+          <label htmlFor="inputId">加入服务：</label>
+          <input 
+            id="inputId" 
+            value={this.state.inputValue} 
+            onChange={this.inputChange.bind(this)}
+            ref={(input)=>{this.input=input}}/> 
           <button onClick={this.addList.bind(this)}> 增加服务 </button>
         </div>
-        <ul>
+        <ul ref={e=>this.ul=e}>
           {
             this.state.list.map((item,index) => {
               return (
@@ -38,20 +44,35 @@ class Demo extends Component {
               )
             })
           }
-        </ul> 
+        </ul>
+        <div>
+          <Lifecycle />
+        </div>
+        <div>
+          <Axios />
+        </div>
       </Fragment>
     )
   }
+  componentDidMount() {
+    axios.get('xxxx').then((res)=>{
+      console.log('axios 获取数据成功:'+JSON.stringify(res))
+      this.setState({
+          list: res.data.data
+      })
+    }).catch((error)=>{console.log('axios 获取数据失败'+error)})
+  }
 
-  inputChange(e) {
-    this.setState({
-      inputValue: e.target.value
-    })
+  inputChange() {
+    this.setState({ inputValue: this.input.value })
   }
 
   addList() {
+    console.log(this.ul)
     this.setState({
       list: [...this.state.list, this.state.inputValue]
+    }, () => { // 异步
+      console.log(this.ul.querySelectorAll('li').length)
     })
   }
 
@@ -68,7 +89,7 @@ class Demo extends Component {
 Demo.propTypes = {
   content: PropTypes.string,
   deleteItem: PropTypes.func,
-  index: PropTypes.number.isRequired
+  // index: PropTypes.number.isRequired
 }
 
 export default Demo
