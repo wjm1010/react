@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import Demo1 from './Demo1'
+import Demo2 from './demo2'
 import Lifecycle from './lifecycle'
 import Axios from './axios'
 import PropTypes from 'prop-types'  // 校验
@@ -22,9 +23,9 @@ class Demo extends Component {
           <input 
             id="inputId" 
             value={this.state.inputValue} 
-            onChange={this.inputChange.bind(this)}
+            onChange={this.inputChange}
             ref={(input)=>{this.input=input}}/> 
-          <button onClick={this.addList.bind(this)}> 增加服务 </button>
+          <button onClick={this.addList}> 增加服务 </button>
         </div>
         <ul ref={e=>this.ul=e}>
           {
@@ -51,6 +52,9 @@ class Demo extends Component {
         <div>
           <Axios />
         </div>
+        <div>
+          <Demo2 />
+        </div>
       </Fragment>
     )
   }
@@ -63,11 +67,11 @@ class Demo extends Component {
     }).catch((error)=>{console.log('axios 获取数据失败'+error)})
   }
 
-  inputChange() {
+  inputChange = () => {
     this.setState({ inputValue: this.input.value })
   }
 
-  addList() {
+  addList = () => {
     console.log(this.ul)
     this.setState({
       list: [...this.state.list, this.state.inputValue]
