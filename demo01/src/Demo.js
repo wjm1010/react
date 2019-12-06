@@ -61,12 +61,12 @@ class Demo extends Component {
     )
   }
   componentDidMount() {
-    axios.get('xxxx').then((res)=>{
-      console.log('axios 获取数据成功:'+JSON.stringify(res))
-      this.setState({
-          list: res.data.data
-      })
-    }).catch((error)=>{console.log('axios 获取数据失败'+error)})
+    // axios.get('xxxx').then((res)=>{
+    //   console.log('axios 获取数据成功:'+JSON.stringify(res))
+    //   this.setState({
+    //       list: res.data.data
+    //   })
+    // }).catch((error)=>{console.log('axios 获取数据失败'+error)})
   }
 
   inputChange = () => {
