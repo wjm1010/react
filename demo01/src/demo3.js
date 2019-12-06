@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Input , Button , List } from 'antd'
 import store from './store'
-import { actionType } from './store/actionTypes'
+import { changeInputAction, clickBtnAction, deleteAction } from './store/actionCreators'
+
 class demo3 extends Component {
   constructor(props){
     super(props)
@@ -32,24 +33,18 @@ class demo3 extends Component {
   }
 
   changeInputValue (e) {
-    const action ={
-      type: actionType.CHANGE_INPUT,
-      value:e.target.value
-    }
+    const action = changeInputAction(e.target.value)
     store.dispatch(action)
   }
   storeChange = () => {
     this.setState(store.getState())
   }
   clickBtn = () => {
-    const action = { type: actionType.ADD_ITEM}
+    const action = clickBtnAction()
     store.dispatch(action)
   }
   delete (index) {
-    const action = { 
-      type: actionType.DELETE_ITEM,
-      index: index
-    }
+    const action = deleteAction(index)
     store.dispatch(action)
   }
 }
