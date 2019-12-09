@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Demo from './Demo';
+import App from './App';
+// import Demo from './Demo';
 import 'antd/dist/antd.css'
 // import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Demo />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // serviceWorker.unregister();
