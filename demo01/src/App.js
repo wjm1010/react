@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
-
-class Demo extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
+import { Provider } from 'react-redux'
+import store from './store'
+import Demo from './demo5';
+class App extends Component {
 
   render() {
     return (
-      <div>
-        hhh
-      </div>
+      <Provider store={store}>
+        <Demo/>
+      </Provider>
     )
   }
 
 }
 
-export default Demo
+export default App
