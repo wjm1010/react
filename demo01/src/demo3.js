@@ -22,6 +22,7 @@ export default class demo3 extends Component {
           <Button type="primary" onClick={this.clickBtn}>增加</Button>
         </div>
         <div style={{margin:'10px',width:'300px'}}>
+          {this.state.list}
           <List
             bordered
             dataSource={this.state.list}
@@ -33,7 +34,7 @@ export default class demo3 extends Component {
   }
 
   componentDidMount() {
-    console.log(store.getState())
+    console.log(this.state.setlist)
   }
 
   changeInputValue (e) {
@@ -44,6 +45,7 @@ export default class demo3 extends Component {
     this.setState(store.getState())
   }
   clickBtn = () => {
+    console.log(this.state.setlist)
     const action = clickBtnAction()
     store.dispatch(action)
   }

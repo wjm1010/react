@@ -6,7 +6,7 @@ const defaultState = {
     '晚5:30对今日代码进行review'
   ],
   inputValue: '',
-  setlist: ''
+  setlist: []
 }  //默认数据
 export default (state = defaultState,action)=>{
   if(action.type === actionType.CHANGE_INPUT){
@@ -29,6 +29,7 @@ export default (state = defaultState,action)=>{
   }
   if(action.type === actionType.GET_LIST ){ //根据type值，编写业务逻辑
       let newState = JSON.parse(JSON.stringify(state))
+      newState.setlist.push(action.data.errors)
       return newState
   }
    //关键代码------------------end----------
