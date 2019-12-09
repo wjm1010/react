@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Router from './router'
 // import './index.css';
-import App from './App';
-import 'antd/dist/antd.css'
+// import App from './App';
+// import 'antd/dist/antd.css'
 // import * as serviceWorker from './serviceWorker';
 
 // const App = (
@@ -11,6 +12,6 @@ import 'antd/dist/antd.css'
 //   </Provider>
 // )
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<Router />, document.getElementById('root'));
 
 // serviceWorker.unregister();
