@@ -1,31 +1,55 @@
-import React, { Component } from 'react';
-import store from './store'
+import React from 'react'
 import { connect } from 'react-redux'
-class demo5 extends Component {
-  render() {
-    return (
-      <div>
-        <div>
-          <input
-            value={this.props.inputValue}
-            onChange={this.props.handleChange} />
-          <button onClick={this.props.clickButton}>提交</button>
-        </div>
-        <ul>
-          {
-            this.props.list.map((item, index) => {
-              return (
-                <li key={index} onClick={() => this.props.delete(index)}>
-                  {item}
-                </li>
-              )
-            })
-          }
-        </ul>
-      </div>
-    );
-  }
+// class demo5 extends Component {
+//   render() {
+//     let {inputValue ,handleChange,clickButton,list } = this.props
+//     return (
+//       <div>
+//         <div>
+//           <input
+//             value={inputValue}
+//             onChange={handleChange} />
+//           <button onClick={clickButton}>提交</button>
+//         </div>
+//         <ul>
+//           {
+//             list.map((item, index) => {
+//               return (
+//                 <li key={index} onClick={() => this.props.delete(index)}>
+//                   {item}
+//                 </li>
+//               )
+//             })
+//           }
+//         </ul>
+//       </div>
+//     )
+//   }
 
+// }
+const demo5 = (props) => {
+  let {inputValue ,handleChange,clickButton,list } = props
+  return (
+    <div>
+      <div>
+        <input
+          value={inputValue}
+          onChange={handleChange} />
+        <button onClick={clickButton}>提交</button>
+      </div>
+      <ul>
+        {
+          list.map((item, index) => {
+            return (
+              <li key={index} onClick={() => props.delete(index)}>
+                {item}
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
+  )
 }
 const stateToProps = (state) => {
   return {
@@ -57,4 +81,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(stateToProps, mapDispatchToProps)(demo5);
+export default connect(stateToProps, mapDispatchToProps)(demo5)
