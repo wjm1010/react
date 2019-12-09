@@ -5,9 +5,9 @@ class index extends Component {
     super(props);
     this.state = {
       list: [
-        { cid: 123, title: '技术胖的个人博客-1' },
-        { cid: 456, title: '技术胖的个人博客-2' },
-        { cid: 789, title: '技术胖的个人博客-3' },
+        { cid: 123, title: '我是首页-1' },
+        { cid: 456, title: '我是首页-2' },
+        { cid: 789, title: '我是首页-3' },
       ],
       id: '111'
     };
