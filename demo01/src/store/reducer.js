@@ -5,7 +5,8 @@ const defaultState = {
     '早9点和项目经理作开发需求讨论会',
     '晚5:30对今日代码进行review'
   ],
-  inputValue: ''
+  inputValue: '',
+  setlist: ''
 }  //默认数据
 export default (state = defaultState,action)=>{
   if(action.type === actionType.CHANGE_INPUT){
@@ -24,6 +25,10 @@ export default (state = defaultState,action)=>{
   if(action.type === actionType.DELETE_ITEM ){ //根据type值，编写业务逻辑
       let newState = JSON.parse(JSON.stringify(state)) 
       newState.list.splice(action.index, 1)
+      return newState
+  }
+  if(action.type === actionType.GET_LIST ){ //根据type值，编写业务逻辑
+      let newState = JSON.parse(JSON.stringify(state))
       return newState
   }
    //关键代码------------------end----------

@@ -2,10 +2,11 @@ import React, {Component, Fragment} from 'react'
 import Demo1 from './Demo1'
 import Demo2 from './demo2'
 import Demo3 from './demo3'
+import Demo5 from './demo5'
 import Lifecycle from './lifecycle'
 import Axios from './axios'
 import PropTypes from 'prop-types'  // 校验
-import axios from 'axios'
+// import axios from 'axios'
 
 class Demo extends Component {
   constructor (props) {
@@ -56,6 +57,7 @@ class Demo extends Component {
         <div>
           <Demo2 />
           <Demo3 />
+          <Demo5 />
         </div>
       </Fragment>
     )

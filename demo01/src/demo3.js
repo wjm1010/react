@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Input , Button , List } from 'antd'
 import store from './store'
-import { changeInputAction, clickBtnAction, deleteAction } from './store/actionCreators'
+import { changeInputAction, clickBtnAction, deleteAction, getlist } from './store/actionCreators'
 
-class demo3 extends Component {
+export default class demo3 extends Component {
   constructor(props){
     super(props)
     this.state=store.getState();
@@ -25,11 +25,15 @@ class demo3 extends Component {
           <List
             bordered
             dataSource={this.state.list}
-            renderItem={(item,index)=>(<List.Item onClick={this.delete.bind(this, index)}>{item}</List.Item>)}
+            renderItem={(item,index)=>(<List.Item onClick={()=>this.delete(index)}>{item}</List.Item>)}
           />    
         </div>
       </div>
     );
+  }
+
+  componentDidMount() {
+    console.log(store.getState())
   }
 
   changeInputValue (e) {
@@ -48,4 +52,3 @@ class demo3 extends Component {
     store.dispatch(action)
   }
 }
-export default demo3;
