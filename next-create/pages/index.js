@@ -4,7 +4,7 @@ import Link from "next/link";
 import Router from "next/router";
 import Nav from "../components/nav";
 import Demo from "../components/demo1";
-
+import {Button} from 'antd'
 const Home = () => {
   function btn() {
     // Router.push('/demo2?name=kiki')
@@ -23,7 +23,7 @@ const Home = () => {
       </Head>
       <Nav />
       <Demo>点击</Demo>
-
+      <div><Button>我是按钮</Button></div>
       <div>首页</div>
       <Link href="./demo1?name=jackson">
         <a>demo01</a>
