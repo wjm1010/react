@@ -16,7 +16,7 @@ const app = new Koa()
 
 const home = new Router()
 home.get('/', async (ctx) => {
-  ctx.body = 'hello,/'
+  ctx.body = ctx.query
 }).get('/index', async (ctx) => {
   ctx.body = 'hello,index'
 })
